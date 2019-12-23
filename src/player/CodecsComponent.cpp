@@ -683,9 +683,9 @@ static Downloader::HeaderList getPlexHeaders()
   Downloader::HeaderList headers;
   QString auth = SystemComponent::Get().authenticationToken();
   if (auth.size())
-    headers.append({"X-Plex-Token", auth});
-  headers.append({"X-Plex-Product", WITH_CODECS ? "Plex Media Player" : "openpmp"});
-  headers.append({"X-Plex-Platform", "Konvergo"});
+    headers.append(QPair<QString, QString>({"X-Plex-Token", auth}));
+  headers.append(QPair<QString, QString>({"X-Plex-Product", WITH_CODECS ? "Plex Media Player" : "openpmp"}));
+  headers.append(QPair<QString, QString>({"X-Plex-Platform", "Konvergo"}));
   return headers;
 }
 
